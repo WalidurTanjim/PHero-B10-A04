@@ -1,6 +1,9 @@
-// problem 01:
 function calculateTax(income, expenses) {
     if((income < expenses) || (income < 0) || (expenses < 0)){
+        return "Invalid Input";
+    }
+
+    if(typeof income !== 'number' || typeof expenses !== 'number'){
         return "Invalid Input";
     }
 
@@ -9,13 +12,15 @@ function calculateTax(income, expenses) {
     return tax;
 }
 
-// console.log(calculateTax(200, 100));
+// console.log(calculateTax(200, 200));
 
-// problem 02:
 function sendNotification(email) {
     let atTheRate = [];
-    const checkValidity = email.split('');
+    if(typeof email !== 'string'){
+        return "Invalid Email";
+    }
 
+    const checkValidity = email.split('');
     for(const letter of checkValidity){
         if(letter === "@"){
             atTheRate.push(letter);
@@ -30,9 +35,8 @@ function sendNotification(email) {
     return `${userData[0]} sent you an email from ${userData[1]}`;
 }
 
-// console.log(sendNotification('tanjimrahman@gmail.com'));
+// console.log(sendNotification("tanjim.rahman5@gmail.com"));
 
-// problem 03:
 function checkDigitsInName(name) {
     if(typeof name !== "string"){
         return  "Invalid Input";
@@ -46,9 +50,8 @@ function checkDigitsInName(name) {
     }
 }
 
-// console.log(checkDigitsInName("tanjim1"));
+// console.log(checkDigitsInName('!@#'));
 
-// problem 04:
 function calculateFinalScore(obj) {
     if(typeof obj !== 'object' || typeof obj.name !== 'string' || typeof obj.testScore !== 'number' || obj.testScore > 50 || typeof obj.schoolGrade !== 'number' || obj.schoolGrade > 30 || typeof obj.isFFamily !== "boolean"){
         return "Invalid Input";
@@ -69,9 +72,8 @@ function calculateFinalScore(obj) {
     }
 }
 
-// console.log(calculateFinalScore({ name: "Rajib", testScore: 50,  schoolGrade: 30, isFFamily : true  }));
+// console.log(calculateFinalScore({ name: "Rajib", testScore: 50,  schoolGrade: 20, isFFamily : true  }));
 
-// problem 05:
 function  waitingTime(waitingTimes  , serialNumber) {
     if(serialNumber <= waitingTimes.length || !Array.isArray(waitingTimes) || typeof serialNumber !== "number"){
         return "Invalid Input";
@@ -88,4 +90,4 @@ function  waitingTime(waitingTimes  , serialNumber) {
     return remainingTime;
 }
 
-// console.log(waitingTime( [6,2] , 7));
+// console.log(waitingTime([7, 8, 3, 4, 5], 9));
